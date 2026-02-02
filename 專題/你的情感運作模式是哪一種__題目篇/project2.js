@@ -100,10 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function goToResult(type) {
     switch (type) {
-      case "A": window.location.href = "file:///C:/Users/Administrator/Documents/GitHub/psychological-test/answer2-1.html"; break;
-      case "B": window.location.href = "file:///C:/Users/Administrator/Documents/GitHub/psychological-test/answer2-2.html"; break;
-      case "C": window.location.href = "file:///C:/Users/Administrator/Documents/GitHub/psychological-test/answer2-3.html"; break;
-      case "D": window.location.href = "file:///C:/Users/Administrator/Documents/GitHub/psychological-test/answer2-4.html"; break;
+      case "A": window.location.href = "../../answer2-1.html"; break;
+      case "B": window.location.href = "../../answer2-2.html"; break;
+      case "C": window.location.href = "../../answer2-3.html"; break;
+      case "D": window.location.href = "../../answer2-4.html"; break;
     }
   }
 });
