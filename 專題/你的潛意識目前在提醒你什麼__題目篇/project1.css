@@ -13,8 +13,7 @@
 }
 
 .question p {
-  font-size: 24px;
-  /* 原本通常 16~18，這個比較有主視覺感 */
+  font-size: clamp(18px, 4vw, 22px);
   line-height: 1.4;
   /* 縮一點，不要太鬆 */
   letter-spacing: 0.02em;
@@ -60,7 +59,7 @@
   cursor: pointer;
   margin: 8px 0;
   /* 原本 10px → 縮一點 */
-  font-size: 20px;
+  font-size: clamp(20px, 3.5vw, 18px);
   /* 選項字變大 */
   line-height: 1.4;
   /* 行距縮 */
@@ -180,7 +179,9 @@ main {
 }
 
 .form {
-  margin: 3cm 7cm;
+  max-width: 900px;      /* 限制最大寬度 */
+  margin: 80px auto;     /* 置中 + 自動縮放 */
+  padding: 0 20px;       /* 小螢幕留內距 */
 }
 
 /* 1. Nav 樣式 */
