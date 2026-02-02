@@ -8,7 +8,11 @@ html, body {
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    background: radial-gradient(circle at 50% 50%, #0b1020 0%, #050810 100%);
+    background-color: #05070a;
+    background-image: url('../image/background-universe.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
     background-attachment: fixed; /* 讓背景滿版且固定 */
     color: #FFFFFF;
     overflow-x: hidden;
@@ -24,49 +28,30 @@ html, body {
     padding: 0 20px; /* 添加左右padding以防內容貼邊 */
 }
 
-/* logo欄 - 獨立在左上角，不與圖片重疊 */
-.logo-container {
-    position: fixed; /* 改為fixed讓標題完全獨立 */
-    top: 28px;
-    left: 20px;
-    width: auto;
-    max-width: 400px; /* 縮小最大寬度避免重疊 */
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 15px 20px; /* 添加padding */
-    z-index: 100; /* 提高z-index確保在最上層 */
-    background: rgba(5, 8, 16, 0.8); /* 添加半透明背景 */
-    backdrop-filter: blur(10px); /* 添加模糊效果 */
-    border-radius: 15px; /* 添加圓角 */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* 添加邊框 */
+/* 添加logo圖片樣式 */
+.logo-bar { 
+    display: flex;              
+    flex-direction: row;       
+    align-items: center;         
+    justify-content: flex-start; 
+    gap: 3.125rem;              
+    width: auto;               
+    height: 7.625rem;
+    margin: 1.75rem 0 0 2rem;   
+    padding: 0;
 }
 
-.logo-placeholder {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo-text {
-    font-family: 'Noto Serif TC', serif;
+/* 人格宇宙研究室 */
+.lab-title {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 3.125rem;
     font-weight: 700;
-    font-size: clamp(24px, 4vw, 36px); /* 調小字體避免重疊 */
-    letter-spacing: 0.2em;
-    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: left;
+    color: #FFFFFF;
 }
 
-.logo-subtext {
-    font-size: clamp(8px, 1.5vw, 12px); /* 調小字體 */
-    letter-spacing: 0.5em;
-    color: #888;
-    margin-top: -5px;
-    text-align: left;
+.logo-bar img {
+    height: 100%;              
 }
-
 /* 上方大圖 - 調整邊距避免與logo重疊 */
 .hero-image-container {
     position: relative;
@@ -192,9 +177,24 @@ html, body {
 }
 
 /* Specific Card Background Images */
-.pic-subconscious { background-image: url('image/你的潛意識目前在提醒你什麼pic.png'); }
-.pic-emotional { background-image: url('image/你的情感運作模式是哪一種pic.png'); }
-.pic-stress { background-image: url('image/你的壓力能量主要來自哪裡pic.png'); }
+.pic-subconscious {
+  background-image: url('image/你的潛意識目前在提醒你什麼pic.png');
+}
+
+.pic-emotional {
+  background-image: url('image/你的情感運作模式是哪一種pic.png');
+}
+
+.pic-stress {
+  background-image: url('image/你的壓力能量主要來自哪裡pic.png');
+}
+
+/* 移除 a 的預設樣式 */
+.card-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
 
 /* 抽卡牌底區 */
 .draw-card-outer {
@@ -298,8 +298,8 @@ html, body {
 /* 資訊欄 (Footer) - 滿版設計 */
 .info-bar {
     position: relative;
-    width: 100vw; /* 滿版寬度 */
-    margin-left: calc(-50vw + 50%); /* 讓footer突破容器限制，實現滿版 */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     height: auto;
     min-height: 150px;
     background: #D9D9D9; 
@@ -321,13 +321,13 @@ html, body {
 }
 
 .footer-content p {
-    font-size: clamp(16px, 2.5vw, 20px); /* RWD字體大小 */
+    font-size: clamp(16px, 2.5vw, 20px); 
     margin-bottom: 20px;
     line-height: 1.6;
 }
 
 .footer-links {
-    font-size: clamp(12px, 2vw, 14px); /* RWD字體大小 */
+    font-size: clamp(12px, 2vw, 14px); 
     color: #666;
 }
 
@@ -360,11 +360,25 @@ html, body {
         padding: 0 15px;
     }
     
-    .logo-container {
-        top: 15px;
-        left: 15px;
-        max-width: 350px;
-        padding: 12px 18px;
+    .logo-bar {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: auto;
+        justify-content: flex-start; 
+        gap: 1.5rem;
+        height: auto;
+        padding: 1rem 0;
+        margin: 0 0 0 1rem; 
+        align-items: center; 
+    }
+
+    .logo-bar img {
+        height: 4rem;
+    }
+
+    .lab-title {
+        font-size: 2rem;
     }
     
     .hero-image-container {
@@ -396,15 +410,32 @@ html, body {
 
 /* 手機尺寸 */
 @media screen and (max-width: 768px) {
+    html, body {
+        background-attachment: scroll; /* 手機版改為scroll避免背景問題 */
+    }
+    
     .page-wrapper {
         padding: 0 10px;
     }
     
-    .logo-container {
-        top: 10px;
-        left: 10px;
-        max-width: 280px;
-        padding: 10px 15px;
+    .logo-bar {
+        flex-direction: row; 
+        gap: 0.8rem; 
+        padding: 1rem 0;
+        margin: 0 0 0 1rem; 
+        justify-content: flex-start; 
+        align-items: center; 
+        width: auto; 
+        left: 0; 
+        position: relative; 
+    }
+
+    .logo-bar img {
+        height: 2.5rem; 
+    }
+
+    .lab-title {
+        font-size: 1.2rem; 
     }
     
     .hero-image-container {
@@ -456,15 +487,16 @@ html, body {
 
 /* 小手機尺寸 */
 @media screen and (max-width: 480px) {
+    html, body {
+        background-attachment: scroll; /* 小手機版也改為scroll */
+    }
+    
     .page-wrapper {
         padding: 0 8px;
     }
     
-    .logo-container {
-        top: 8px;
-        left: 8px;
-        max-width: 250px;
-        padding: 8px 12px;
+    .lab-title {
+        font-size: 1.2rem;
     }
     
     .hero-image-container {
@@ -535,10 +567,19 @@ html, body {
 /* 橫向手機優化 */
 @media screen and (max-height: 500px) and (orientation: landscape) {
     .logo-container {
-        top: 5px;
-        left: 10px;
-        max-width: 200px;
-        padding: 6px 10px;
+        top: 8px;
+        left: 15px;
+        gap: 20px;
+    }
+    
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-text,
+    .logo-container h1 {
+        font-size: 18px;
     }
     
     .hero-image-container {
