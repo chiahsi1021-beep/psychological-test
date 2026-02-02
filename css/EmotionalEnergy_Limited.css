@@ -1,0 +1,180 @@
+/* 基礎設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #eeeeee;
+}
+
+/* 1. Nav 樣式 */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    background: #0f112d;
+    border-bottom: 1px solid #444;
+}
+
+.logo {
+    display: flex;      
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: auto;
+    display: block;
+}
+
+.lab-title{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ccc;
+    white-space: nowrap;
+}
+
+/* 2. 背景容器 (星空) */
+.main-container {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+
+    /* --- 背景設定開始 --- */
+    background-image: url('../image/StarrySky_B.jpg'); 
+    background-size: cover;      
+    background-position: center; 
+    background-attachment: fixed; /* (選用) 捲動時背景固定不動，更有深邃感 */
+    background-repeat: no-repeat;
+
+}
+
+/* 卡牌區塊垂直排列 */
+.card-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    padding: 25px 30px;
+    border-radius: 20px;
+    background-color: rgba(32, 30, 67, 0.7);
+}
+
+/* 3. 標題與裝飾 */
+.card-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.card-title::before, .card-title::after {
+    content: ""; 
+    display: inline-block;
+    width: 24px;  
+    height: 24px; 
+    margin: 0 50px;
+    background-image: url('../image/CardB_Icon01.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    filter: brightness(1) saturate(1.3) hue-rotate(0deg)
+} 
+
+
+
+/* --- 3. 靜態卡片容器 (移除翻轉邏輯) --- */
+.card-display { 
+    width: 310px; 
+    height: 573px; 
+    margin: 0 auto 30px auto;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    overflow: hidden; 
+}
+
+/* 顯示正面底圖 */
+.card-display::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../image/CardB_frontSide_fixed.png');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9) blur(2px);
+    z-index: 1;
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.overlay-circle span {
+  writing-mode: vertical-rl;
+
+    color: #cccccc; 
+    font-size: 0.85rem;
+    font-weight: bold;
+
+    letter-spacing: 0.3em;
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* 增加陰影確保文字清晰 */
+    font-family: 'Noto Serif TC', serif;
+    pointer-events: none; /* 防止文字干擾滑鼠點擊 */
+}
+
+/* 動畫設定 */
+@keyframes pulse-glow {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(102, 193, 241, 0.2)); }
+    50% { transform: scale(1.03); filter: drop-shadow(0 0 15px rgba(106, 78, 230, 0.5)); }
+}
+
+
+
+
+/* 7. 按鈕群組 */
+.button-group {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.btn-home {
+    background-color: #3b2738ae;
+    color: #aaa;
+    border: 1px solid #89678570;
+    border-radius: 30px;
+}
+
+.btn-home:hover {
+    background-color: #bb6db1a9;
+    color: white;
+}
