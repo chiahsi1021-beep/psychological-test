@@ -12,8 +12,6 @@ body {
     background-position: center top;
     background-size: cover;
     background-attachment: fixed;
-    display: flex;
-    justify-content: center;
     min-height: 100vh;
 }
 html, body {
@@ -22,6 +20,44 @@ html, body {
     overflow-x: hidden;
     overflow-y: auto;   
 }
+
+/* 導航欄樣式 - 改為非固定 */
+.navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    background: rgba(15, 17, 45, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: auto;
+}
+
+.logo {
+    display: flex;      
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+.navbar .lab-title {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
 .main-canvas,
 .content-box,
 .content-container {
@@ -30,8 +66,7 @@ html, body {
 
 .main-canvas {
     position: relative;
-    width: 100vw;
-    max-width: 90rem;
+    width: 100%;
     height: auto;
     min-height: 100vh;
     background: transparent;
@@ -39,43 +74,28 @@ html, body {
     overflow-y: auto;
 }
 
-/* --- logo欄 (由原有座標與新元素整合) --- */
+/* --- logo欄 (完全隱藏原有的logo欄) --- */
 .logo-bar { 
-    display: flex;              
-    flex-direction: row;        
-    align-items: center;         
-    justify-content: flex-start; 
-    gap: 3.125rem;              
-    width: auto;                
-    height: 7.625rem;
-    margin: 1.75rem 0 0 2rem;   
-    padding: 0;
+    display: none !important;
 }
 
-/* 人格宇宙研究室 */
-.lab-title {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 3.125rem;
-    font-weight: 700;
-    color: #FFFFFF;
-}
-
-.logo-bar img {
-    height: 100%;              
+/* 移除重複的lab-title樣式 */
+.main-canvas .lab-title {
+    display: none;
 }
 
 /* --- 中間透明層底圖 --- */
 .content-box {
-    width: 72.25rem;
-    max-width: 90%;
+    width: 100%;
+    max-width: 1200px;
     height: auto;
-    min-height: 80rem;
-    margin: 2rem auto 2rem auto; 
+    min-height: auto;
+    margin: 2rem auto; 
     background: rgba(11, 16, 32, 0.8);
     box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
     border-radius: 1.5rem;
     backdrop-filter: blur(0.625rem);
-    padding: 3rem 2rem;
+    padding: 2rem;
 }
 
 
@@ -127,7 +147,6 @@ html, body {
     padding: 0 2rem;
 }
 
-
 .action-now {
     font-family: 'Noto Sans', sans-serif;
     font-weight: 700;
@@ -137,11 +156,11 @@ html, body {
     color: #a70ac7;
     white-space: nowrap;
 }
+
 .second-icon {
     width: 3rem;  
     height: auto;
 }
-
 
 /* 有些東西，已經不再屬於現在的你。 */
 .main-quote {
@@ -282,6 +301,16 @@ html, body {
     transform: scale(1.05);
 }
 
+.draw-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #7e2626;
+    color: #fff;
+    text-decoration: none; 
+    font-weight: 700;
+    text-align: center;
+}
+
 /* 資訊欄 */
 .info-bar {
     position: relative;
@@ -340,31 +369,16 @@ html, body {
         padding: 1rem;
         overflow-y: visible;
     }
-   .secon-icon {
-    width: 8rem;
-    height: auto;
-    flex-shrink: 0;
-    }
 
-    .logo-bar {
-        position: relative;
-        left: 0;
-        top: 0;
-        width: 100%;
-        justify-content: flex-start;
-        gap: 1.5rem;
+    .secon-icon {
+        width: 3rem;
         height: auto;
-        padding: 1rem 0;
-        margin: 0 0 0 1rem; 
-        align-items: center;
+        flex-shrink: 0;
     }
 
-    .logo-bar img {
-        height: 4rem;
-    }
-
-    .lab-title {
-        font-size: 2rem;
+    /* 確保logo-bar在平板上也隱藏 */
+    .logo-bar {
+        display: none !important;
     }
 
     .content-box {
@@ -393,8 +407,8 @@ html, body {
     .title-section-container {
         flex-direction: column;
         text-align: center;
-        gap: 1.5rem;
-        margin: 2rem auto;
+        gap: 1rem;
+        margin: 1.5rem auto;
         padding: 0 1rem;
     }
 
@@ -496,16 +510,6 @@ html, body {
         max-width: 20rem;
     }
 
-    .draw-btn {
-        display: inline-block;
-        padding: 1rem 2rem;
-        background: #7e2626;
-        color: #fff;
-        text-decoration: none; 
-        font-weight: 700;
-        text-align: center;
-    }
-
     .info-bar {
         margin-top: 2rem;
     }
@@ -524,24 +528,9 @@ html, body {
         min-height: 100vh;
     }
 
+    /* 確保logo-bar在手機上也隱藏 */
     .logo-bar {
-        flex-direction: row; 
-        gap: 0.8rem; 
-        padding: 1rem 0;
-        margin: 0 0 0 1rem; 
-        justify-content: flex-start; 
-        align-items: center; 
-        width: auto; 
-        left: 0; 
-        position: relative; 
-    }
-
-    .logo-bar img {
-        height: 2.5rem;
-    }
-
-    .lab-title {
-        font-size: 1.2rem;
+        display: none !important;
     }
 
     .content-box {
@@ -562,7 +551,8 @@ html, body {
     .title-section-container {
         flex-direction: column;
         gap: 1rem;
-        margin-bottom: 1.5rem;
+        margin: 1rem auto 1.5rem auto;
+        padding: 0 1rem;
     }
 
     .title-icon {
@@ -679,10 +669,6 @@ html, body {
 
     .content-container {
         padding: 0.5rem;
-    }
-
-    .lab-title {
-        font-size: 1.2rem;
     }
 
     .subconscious-reminder-title {

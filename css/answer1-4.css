@@ -282,6 +282,16 @@ html, body {
     transform: scale(1.05);
 }
 
+.draw-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #7e2626;
+    color: #fff;
+    text-decoration: none; 
+    font-weight: 700;
+    text-align: center;
+}
+
 /* 資訊欄 */
 .info-bar {
     position: relative;
@@ -495,15 +505,6 @@ html, body {
         max-width: 20rem;
     }
 
-    .draw-btn {
-        display: inline-block;
-        padding: 1rem 2rem;
-        background: #7e2626;
-        color: #fff;
-        text-decoration: none; 
-        font-weight: 700;
-        text-align: center;
-    }
     .info-bar {
         margin-top: 2rem;
     }
