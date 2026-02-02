@@ -290,10 +290,37 @@ html, body {
     padding: 0 10px;
 }
 
+
 /* Specific Draw Card Background Images */
-.pic-energy { background-image: url('image/今日能量指引pic.png'); }
-.pic-field { background-image: url('image/潛意識訊息pic.png'); }
-.pic-healing { background-image: url('image/情緒療癒卡pic.png'); }
+.pic-energy {
+  background-image: url('image/今日能量指引pic.png');
+}
+
+.pic-field {
+  background-image: url('image/潛意識訊息pic.png');
+}
+
+.pic-healing {
+  background-image: url('image/情緒療癒卡pic.png');
+}
+
+/* 共用卡片樣式 */
+.pic-energy,
+.pic-field,
+.pic-healing {
+  width: 300px;
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+/* 移除 a 預設樣式 */
+.card-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
 
 /* 資訊欄 (Footer) - 滿版設計 */
 .info-bar {
