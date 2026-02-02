@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentStep = step;
       target.scrollIntoView({
         behavior: "smooth",
-        block: "start"
+        block: "center"
       });
     }
   }

@@ -13,8 +13,7 @@
 }
 
 .question p {
-  font-size: 24px;
-  /* 原本通常 16~18，這個比較有主視覺感 */
+  font-size: clamp(20px, 3.5vw, 18px);
   line-height: 1.4;
   /* 縮一點，不要太鬆 */
   letter-spacing: 0.02em;
@@ -60,7 +59,7 @@
   cursor: pointer;
   margin: 8px 0;
   /* 原本 10px → 縮一點 */
-  font-size: 20px;
+  font-size:clamp(20px, 3.5vw, 18px);
   /* 選項字變大 */
   line-height: 1.4;
   /* 行距縮 */
@@ -193,5 +192,32 @@ h1 img {
 }
 
 .form {
-  margin: 3cm 7cm;
+  max-width: 900px;      /* 限制最大寬度 */
+  margin: 80px auto;     /* 置中 + 自動縮放 */
+  padding: 0 20px;       /* 小螢幕留內距 */
+}
+
+/* 1. Nav 樣式 */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: #0f112d;
+  border-bottom: 1px solid #444;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 40px;
+  height: auto;
+  display: block;
+}
+.lab-title{
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ccc;
+  white-space: nowrap;
 }
