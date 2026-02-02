@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentStep = step;
       target.scrollIntoView({
         behavior: "smooth",
-        block: "start"
+        block: "center"
       });
     }
   }
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         prevQ.scrollIntoView({
           behavior: "smooth",
-          block: "center"
+          block: "start"
         });
       }
 
