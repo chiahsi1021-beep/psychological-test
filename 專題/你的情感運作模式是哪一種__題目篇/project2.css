@@ -13,8 +13,7 @@
 }
 
 .question p {
-  font-size: 24px;
-  /* 原本通常 16~18，這個比較有主視覺感 */
+  font-size: clamp(20px, 3.5vw, 18px);
   line-height: 1.4;
   /* 縮一點，不要太鬆 */
   letter-spacing: 0.02em;
@@ -60,7 +59,7 @@
   cursor: pointer;
   margin: 8px 0;
   /* 原本 10px → 縮一點 */
-  font-size: 20px;
+  font-size:clamp(20px, 3.5vw, 18px);
   /* 選項字變大 */
   line-height: 1.4;
   /* 行距縮 */
