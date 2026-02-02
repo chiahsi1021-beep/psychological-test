@@ -1,0 +1,683 @@
+/* --- Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #05070a;
+    background-image: url('../image/background-universe.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;   
+}
+.main-canvas,
+.content-box,
+.content-container {
+    overflow: visible !important;
+}
+
+.main-canvas {
+    position: relative;
+    width: 100vw;
+    max-width: 90rem;
+    height: auto;
+    min-height: 100vh;
+    background: transparent;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* --- logo欄 (由原有座標與新元素整合) --- */
+.logo-bar { 
+    display: flex;               
+    flex-direction: row;         
+    align-items: center;         
+    justify-content: flex-start; 
+    gap: 3.125rem;               
+    width: auto;                 
+    height: 7.625rem;
+    margin: 1.75rem 0 0 2rem;   
+    padding: 0;
+}
+
+/* 人格宇宙研究室 */
+.lab-title {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 3.125rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.logo-bar img {
+    height: 100%;              
+}
+
+/* --- 中間透明層底圖 --- */
+.content-box {
+    width: 72.25rem;
+    max-width: 90%;
+    height: auto;
+    min-height: 80rem;
+    margin: 2rem auto 2rem auto; 
+    background: rgba(11, 16, 32, 0.8);
+    box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(0.625rem);
+    padding: 3rem 2rem;
+}
+
+
+/* --- 標題區域 (整合 Icon 與 提醒標題) --- */
+.title-section-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2.9375rem;
+    width: 100%;
+    margin: 3rem auto 2rem auto;
+    padding: 0 2rem;
+}
+
+/* 潛意識 Icon */
+.title-icon {
+    width: 8rem;
+    height: 8rem;
+    flex-shrink: 0;
+}
+
+/* 該放下了 icon */
+.secon-icon {
+    width: 6rem;
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* 你的潛意識目前在提醒你什麼 */
+.subconscious-reminder-title {
+    font-family: 'Noto Serif', serif;
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    text-align: center;
+    flex: 1;
+}
+
+/* --- 該行動了 --- */
+.action-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+
+.action-now {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.4375rem;
+    letter-spacing: 0.05em;
+    color: #4cec0d;
+    white-space: nowrap;
+}
+.second-icon {
+    width: 3rem;  
+    height: auto;
+}
+
+
+/* 有些東西，已經不再屬於現在的你。 */
+.main-quote {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* 描述文字 */
+.description-text {
+    font-family: 'Noto Serif', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.6;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* 給你的三個提醒： */
+.reminders-title {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    color: #B7DCAC;
+    text-align: center;
+    margin: 2rem auto 3rem auto;
+    padding: 0 2rem;
+}
+
+/* 分隔線 */
+.separator {
+    width: 100%;
+    height: 0;
+    border: 0.125rem solid #D8C690;
+    box-shadow: 0rem 0.25rem 0.25rem rgba(255, 244, 45, 0.44);
+    margin: 4rem auto;
+}
+
+/* 提醒容器 */
+.reminders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin: 0 auto 4rem auto;
+    padding: 0 2rem;
+    align-items: center; 
+}
+
+.reminder-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 2rem;
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.reminder-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.reminder-item:nth-child(even) .reminder-2-text {
+    text-align: right;
+}
+
+/* 提醒圖片 */
+.reminder-1-img, .reminder-2-img, .reminder-3-img {
+    width: 10rem;
+    height: 10rem;
+    background-size: cover;
+    border-radius: 2rem;
+    flex-shrink: 0;
+}
+
+.reminder-1-img {
+    background-image: url('../image/早一點休息.png');
+}
+
+.reminder-2-img {
+    background-image: url('../image/給自己一段安靜的時間.png');
+}
+
+.reminder-3-img {
+    background-image: url('../image/不必對所有事負責.png');
+}
+
+/* 提醒文字 */
+.reminder-1-text, .reminder-2-text, .reminder-3-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    line-height: 1.4;
+    flex: none;
+    text-align: left;
+}
+
+/* 按鈕容器 */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem auto 3rem auto;
+    padding: 0 2rem;
+}
+
+/* 抽一張指引卡按鈕 */
+.draw-btn,
+.retry-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: 4.5rem;
+    background: #822727;
+    border-radius: 1.875rem;
+    border: none;
+    color: #FFF;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.draw-btn:hover,
+.retry-btn:hover {
+    background: #a33131;
+    transform: scale(1.05);
+}
+
+/* 資訊欄 */
+.info-bar {
+    width: 100vw;
+    height: 13rem;
+    background: #D9D9D9;
+    margin: 3rem 0 0 calc(-50vw + 50%); 
+}
+
+/* 平板 (768px - 1024px) */
+@media (max-width: 64rem) {
+    body {
+        background-attachment: scroll;
+    }
+
+    .main-canvas {
+        height: auto;
+        min-height: 100vh;
+        padding: 1rem;
+        overflow-y: visible;
+    }
+   .secon-icon {
+    width: 8rem;
+    height: auto;
+    flex-shrink: 0;
+    }
+
+    .logo-bar {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 1.5rem;
+        height: auto;
+        padding: 1rem 0;
+        margin: 0 0 0 1rem; 
+        align-items: center;
+    }
+
+    .logo-bar img {
+        height: 4rem;
+    }
+
+    .lab-title {
+        font-size: 2rem;
+    }
+
+    .content-box {
+        position: relative;
+        margin: 2rem auto 0 auto;
+        width: 95%;
+        max-width: 50rem;
+        height: auto;
+        min-height: auto;
+        padding: 3rem 2rem;
+        background: rgba(11, 16, 32, 0.8);
+        box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
+        border-radius: 1.5rem;
+        backdrop-filter: blur(0.625rem);
+        transform: none;
+        left: auto;
+        top: auto;
+    }
+
+    .content-container {
+        position: relative;
+        width: 100%;
+        padding: 0;
+    }
+
+    .title-section-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .title-icon {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .subconscious-reminder-title {
+        font-size: 2rem;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .action-group {
+        justify-content: center;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .action-now {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+
+    .main-quote {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin: 2rem auto;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .description-text {
+        font-size: 1.4rem;
+        line-height: 1.5;
+        margin: 2rem auto;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .separator {
+        margin: 3rem auto;
+    }
+
+    .reminders-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        text-align: center;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    /* 提醒項目重新排列 */
+    .reminders-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .reminder-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .reminder-item:nth-child(even) {
+        flex-direction: column; 
+    }
+
+    .reminder-1-img, .reminder-2-img, .reminder-3-img {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .reminder-1-text, .reminder-2-text, .reminder-3-text {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .draw-btn, .retry-btn {
+        width: 100%;
+        max-width: 20rem;
+    }
+
+    .draw-btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: #7e2626;
+        color: #fff;
+        text-decoration: none; 
+        font-weight: 700;
+        text-align: center;
+    }
+    .info-bar {
+        margin-top: 2rem;
+    }
+}
+
+/* 手機 (最大 768px) */
+@media (max-width: 48rem) {
+    body {
+        background-attachment: scroll;
+        background-size: cover;
+    }
+
+    .main-canvas {
+        padding: 0.5rem;
+        overflow-y: visible;
+        min-height: 100vh;
+    }
+
+    .logo-bar {
+        flex-direction: row;
+        gap: 0.8rem;
+        padding: 1rem 0;
+        margin: 0 0 0 1rem; 
+        justify-content: flex-start; 
+        align-items: center; 
+        width: auto; 
+        left: 0; 
+        position: relative; 
+    }
+
+    .logo-bar img {
+        height: 2.5rem;
+    }
+
+    .lab-title {
+        font-size: 1.2rem;
+    }
+
+    .content-box {
+        width: 95%;
+        max-width: none;
+        padding: 2rem 1.5rem;
+        margin: 1rem auto 0 auto;
+        transform: none;
+        left: auto;
+        top: auto;
+        position: relative;
+    }
+
+    .content-container {
+        padding: 0;
+    }
+
+    .title-section-container {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .title-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .subconscious-reminder-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .action-group {
+        justify-content: center;
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .action-now {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    .secon-icon {
+        width: 2.5rem;
+    }
+
+    .main-quote {
+        font-size: 1.4rem;
+        line-height: 1.5;
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .description-text {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .separator {
+        margin: 2rem auto;
+    }
+
+    .reminders-title {
+        font-size: 2rem;
+        line-height: 1.3;
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .reminders-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .reminder-item {
+        display: flex;
+        flex-direction: column !important; 
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .reminder-1-img, .reminder-2-img, .reminder-3-img {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .reminder-1-text, .reminder-2-text, .reminder-3-text {
+        font-size: 1.4rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .draw-btn, .retry-btn {
+        width: 100%;
+        max-width: 18rem;
+        height: 4rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* 小手機 (最大 480px) */
+@media (max-width: 30rem) {
+    body {
+        background-attachment: scroll;
+    }
+
+    .main-canvas {
+        padding: 0.25rem;
+        min-height: 100vh;
+    }
+
+    .content-box {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    .content-container {
+        padding: 0.5rem;
+    }
+
+    .lab-title {
+        font-size: 1.2rem;
+    }
+
+    .subconscious-reminder-title {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+    }
+
+    .action-now {
+        font-size: 1.6rem;
+        line-height: 2rem;
+    }
+
+    .main-quote {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+
+    .description-text {
+        font-size: 0.95rem;
+        line-height: 1.4rem;
+    }
+
+    .reminders-title {
+        font-size: 1.6rem;
+        line-height: 2rem;
+    }
+
+    .reminder-1-text, .reminder-2-text, .reminder-3-text {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+
+    .draw-btn, .retry-btn {
+        height: 3.5rem;
+        font-size: 1rem;
+    }
+}

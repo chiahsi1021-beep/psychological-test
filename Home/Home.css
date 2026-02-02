@@ -1,0 +1,559 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 50%, #0b1020 0%, #050810 100%);
+    background-attachment: fixed; /* 讓背景滿版且固定 */
+    color: #FFFFFF;
+    overflow-x: hidden;
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+}
+
+.page-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0 20px; /* 添加左右padding以防內容貼邊 */
+}
+
+/* logo欄 - 獨立在左上角，不與圖片重疊 */
+.logo-container {
+    position: fixed; /* 改為fixed讓標題完全獨立 */
+    top: 28px;
+    left: 20px;
+    width: auto;
+    max-width: 400px; /* 縮小最大寬度避免重疊 */
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px 20px; /* 添加padding */
+    z-index: 100; /* 提高z-index確保在最上層 */
+    background: rgba(5, 8, 16, 0.8); /* 添加半透明背景 */
+    backdrop-filter: blur(10px); /* 添加模糊效果 */
+    border-radius: 15px; /* 添加圓角 */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 添加邊框 */
+}
+
+.logo-placeholder {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: clamp(24px, 4vw, 36px); /* 調小字體避免重疊 */
+    letter-spacing: 0.2em;
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: left;
+}
+
+.logo-subtext {
+    font-size: clamp(8px, 1.5vw, 12px); /* 調小字體 */
+    letter-spacing: 0.5em;
+    color: #888;
+    margin-top: -5px;
+    text-align: left;
+}
+
+/* 上方大圖 - 調整邊距避免與logo重疊 */
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 1343px;
+    height: auto;
+    aspect-ratio: 16/9;
+    margin: 40px auto 40px; /* 減少上邊距，因為logo現在是fixed */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 24px;
+    gap: 10px;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.02);
+}
+
+/* 心理測驗實驗室外框 */
+.test-lab-outer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 31px 34px;
+    gap: 10px;
+    
+    width: 100%;
+    max-width: 433px;
+    height: auto;
+    min-height: 120px;
+    margin: 60px auto 40px;
+
+    background: rgba(11, 16, 32, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.test-lab-outer h2 {
+    margin: 0;
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(28px, 4vw, 40px); /* RWD字體大小 */
+    font-weight: 300;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+/* 心理測驗 Section - 調整grid以適應新尺寸 */
+.test-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); /* 調整最小寬度 */
+    gap: 60px 40px; /* 增加垂直間距 */
+    max-width: 1200px;
+    margin: 0 auto 120px; /* 增加底部邊距 */
+    padding: 0 20px;
+}
+
+/* 心理測驗 Items - 保持原尺寸不裁切，純圖片浮起效果 */
+.test-card {
+    position: relative;
+    width: 100%;
+    max-width: 238px; /* 恢復原始尺寸 */
+    height: auto; /* 改為自動高度 */
+    margin: 0 auto 80px; /* 增加底部邊距給標題留空間 */
+    box-sizing: border-box;
+    border-radius: 12px;
+    overflow: visible; /* 改為visible讓標題可以顯示在外面 */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.test-card:hover {
+    transform: translateY(-10px); /* 只保留向上浮起效果，移除scale */
+}
+
+.test-card .card-pic {
+    width: 100%;
+    height: 322px; /* 恢復原始高度 */
+    background-size: contain; /* 改為contain保持原尺寸不裁切 */
+    background-repeat: no-repeat; /* 不重複 */
+    background-position: center;
+    border: 1px solid #000000;
+    border-radius: 12px; /* 添加圓角 */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* 添加陰影 */
+    transition: all 0.3s ease;
+}
+
+.test-card:hover .card-pic {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5); /* hover時增強陰影 */
+}
+
+.test-card .card-title {
+    position: absolute;
+    bottom: -70px; /* 調整位置確保不重疊 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 300px;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+    font-size: clamp(16px, 2.5vw, 20px); /* 調小字體 */
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* Specific Card Background Images */
+.pic-subconscious { background-image: url('image/你的潛意識目前在提醒你什麼pic.png'); }
+.pic-emotional { background-image: url('image/你的情感運作模式是哪一種pic.png'); }
+.pic-stress { background-image: url('image/你的壓力能量主要來自哪裡pic.png'); }
+
+/* 抽卡牌底區 */
+.draw-card-outer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 17px 56px;
+    gap: 10px;
+
+    width: 100%;
+    max-width: 405px;
+    height: auto;
+    min-height: 120px;
+    margin: 60px auto 40px;
+
+    background: rgba(11, 16, 32, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.draw-card-outer h2 {
+    margin: 0;
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(24px, 4vw, 36px); /* RWD字體大小 */
+    font-weight: 300;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+/* 抽卡 Section - 調整grid以適應新尺寸 */
+.card-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(301px, 1fr)); /* 調整最小寬度 */
+    gap: 60px 40px; /* 增加垂直間距 */
+    max-width: 1200px;
+    margin: 0 auto 120px; /* 增加底部邊距 */
+    padding: 0 20px;
+}
+
+/* 抽卡 Items - 同樣保持原尺寸不裁切，純圖片浮起效果 */
+.draw-item {
+    position: relative;
+    width: 100%;
+    max-width: 301px; /* 保持原尺寸 */
+    height: auto; /* 改為自動高度 */
+    margin: 0 auto 80px; /* 增加底部邊距給標題留空間 */
+    box-sizing: border-box;
+    border-radius: 12px;
+    overflow: visible; /* 改為visible讓標題可以顯示在外面 */
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.draw-item:hover {
+    transform: translateY(-8px); /* 簡化為純向上浮起效果 */
+}
+
+.draw-item .draw-pic {
+    width: 100%;
+    height: 329px; /* 保持原始高度 */
+    background-size: contain; /* 改為contain保持原尺寸不裁切 */
+    background-repeat: no-repeat; /* 不重複 */
+    background-position: center;
+    border: 1px solid #000000;
+    border-radius: 12px; /* 添加圓角 */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* 添加陰影 */
+    transition: all 0.4s ease;
+}
+
+.draw-item:hover .draw-pic {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5); /* hover時增強陰影 */
+    filter: brightness(1.1); /* 輕微提亮 */
+}
+
+.draw-item .draw-title {
+    position: absolute;
+    bottom: -70px; /* 調整位置確保不重疊 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 300px;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+    font-size: clamp(16px, 2.5vw, 20px); /* 調小字體 */
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* Specific Draw Card Background Images */
+.pic-energy { background-image: url('image/今日能量指引pic.png'); }
+.pic-field { background-image: url('image/潛意識訊息pic.png'); }
+.pic-healing { background-image: url('image/情緒療癒卡pic.png'); }
+
+/* 資訊欄 (Footer) - 滿版設計 */
+.info-bar {
+    position: relative;
+    width: 100vw; /* 滿版寬度 */
+    margin-left: calc(-50vw + 50%); /* 讓footer突破容器限制，實現滿版 */
+    height: auto;
+    min-height: 150px;
+    background: #D9D9D9; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 20px;
+    gap: 10px;
+    box-sizing: border-box;
+    margin-top: 80px;
+}
+
+.footer-content {
+    text-align: center;
+    color: #333;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.footer-content p {
+    font-size: clamp(16px, 2.5vw, 20px); /* RWD字體大小 */
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.footer-links {
+    font-size: clamp(12px, 2vw, 14px); /* RWD字體大小 */
+    color: #666;
+}
+
+.footer-links span {
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-links span:hover {
+    color: #000;
+}
+
+/* Hover Effects and Micro-animations */
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(255,255,255,0.1); }
+    50% { box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+    100% { box-shadow: 0 0 5px rgba(255,255,255,0.1); }
+}
+
+.test-lab-outer, .draw-card-outer {
+    animation: glow 4s infinite ease-in-out;
+}
+
+/* RWD 媒體查詢 */
+
+/* 平板尺寸 */
+@media screen and (max-width: 1024px) {
+    .page-wrapper {
+        padding: 0 15px;
+    }
+    
+    .logo-container {
+        top: 15px;
+        left: 15px;
+        max-width: 350px;
+        padding: 12px 18px;
+    }
+    
+    .hero-image-container {
+        aspect-ratio: 16/10;
+        margin: 30px auto 40px; /* 減少上邊距 */
+        border-radius: 20px;
+    }
+    
+    .test-section,
+    .card-section {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 50px 30px;
+        padding: 0 15px;
+    }
+    
+    .test-card,
+    .draw-item {
+        max-width: 220px;
+    }
+    
+    .test-card .card-pic {
+        height: 280px;
+    }
+    
+    .draw-item .draw-pic {
+        height: 280px;
+    }
+}
+
+/* 手機尺寸 */
+@media screen and (max-width: 768px) {
+    .page-wrapper {
+        padding: 0 10px;
+    }
+    
+    .logo-container {
+        top: 10px;
+        left: 10px;
+        max-width: 280px;
+        padding: 10px 15px;
+    }
+    
+    .hero-image-container {
+        aspect-ratio: 4/3;
+        margin: 25px auto 30px; /* 減少上邊距 */
+        padding: 0 15px;
+        border-radius: 15px;
+    }
+    
+    .test-lab-outer,
+    .draw-card-outer {
+        margin: 40px auto 30px;
+        padding: 20px 25px;
+        min-height: 100px;
+    }
+    
+    .test-section,
+    .card-section {
+        grid-template-columns: 1fr;
+        gap: 40px 25px;
+        padding: 0 10px;
+    }
+    
+    .test-card,
+    .draw-item {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .test-card .card-pic {
+        height: 250px;
+    }
+    
+    .draw-item .draw-pic {
+        height: 250px;
+    }
+    
+    .info-bar {
+        padding: 30px 15px;
+        min-height: 120px;
+        margin-top: 60px;
+    }
+    
+    .footer-links span {
+        margin: 0 8px;
+        display: inline-block;
+    }
+}
+
+/* 小手機尺寸 */
+@media screen and (max-width: 480px) {
+    .page-wrapper {
+        padding: 0 8px;
+    }
+    
+    .logo-container {
+        top: 8px;
+        left: 8px;
+        max-width: 250px;
+        padding: 8px 12px;
+    }
+    
+    .hero-image-container {
+        aspect-ratio: 1/1;
+        margin: 20px auto 20px; /* 減少上邊距 */
+        padding: 0 10px;
+        border-radius: 10px;
+    }
+    
+    .test-lab-outer,
+    .draw-card-outer {
+        margin: 30px auto 20px;
+        padding: 15px 20px;
+        min-height: 80px;
+    }
+    
+    .test-section,
+    .card-section {
+        gap: 35px 20px;
+        padding: 0 8px;
+    }
+    
+    .test-card .card-pic {
+        height: 220px;
+    }
+    
+    .draw-item .draw-pic {
+        height: 220px;
+    }
+    
+    .info-bar {
+        padding: 25px 10px;
+        min-height: 100px;
+        margin-top: 40px;
+    }
+    
+    .footer-content p {
+        margin-bottom: 15px;
+    }
+    
+    .footer-links {
+        line-height: 1.8;
+    }
+    
+    .footer-links span {
+        margin: 0 5px;
+    }
+}
+
+/* 超寬螢幕優化 */
+@media screen and (min-width: 1600px) {
+    .page-wrapper {
+        max-width: 1600px;
+    }
+    
+    .test-section,
+    .card-section {
+        max-width: 1400px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .test-card,
+    .draw-item {
+        max-width: 320px;
+    }
+}
+
+/* 橫向手機優化 */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .logo-container {
+        top: 5px;
+        left: 10px;
+        max-width: 200px;
+        padding: 6px 10px;
+    }
+    
+    .hero-image-container {
+        aspect-ratio: 2/1;
+        margin: 15px auto 20px; /* 減少上邊距 */
+    }
+    
+    .test-section,
+    .card-section {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 30px 20px;
+    }
+    
+    .test-card .card-pic,
+    .draw-item .draw-pic {
+        height: 180px;
+    }
+}

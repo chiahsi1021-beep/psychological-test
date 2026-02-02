@@ -1,0 +1,197 @@
+/*慢慢浮上來的動畫*/
+.question {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.question.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.question p {
+  font-size: 24px;
+  /* 原本通常 16~18，這個比較有主視覺感 */
+  line-height: 1.4;
+  /* 縮一點，不要太鬆 */
+  letter-spacing: 0.02em;
+  /* 字距稍微縮 */
+  margin-bottom: 16px;
+}
+
+/* 1. 當題目完成時，只針對 p (題目文字) 和 .option (選項文字) 變色 */
+.question.completed p,
+.question.completed .option {
+  color: #faefbcc6;
+  /* 這裡換成你想要的「已完成」顏色，例如灰色 */
+  transition: color 0.4s ease;
+}
+
+/* 2. 特別指定：即便在 completed 狀態下，圓圈的邊框顏色保持不變 */
+.question.completed .custom-radio {
+  border-color: #b69754 !important;
+  /* 強制維持你原本的金棕色 */
+  opacity: 1;
+  /* 確保圓圈不會跟著變透明 */
+}
+
+/* 3. 特別指定：即便在 completed 狀態下，打勾/圓點的顏色保持不變 */
+.question.completed .option input:checked+.custom-radio::after {
+  background: #b69754;
+  /* 保持你設定的選中顏色 */
+}
+
+/* 4. 如果你原本有這段，請移除裡面的 color 設定，避免它強制覆蓋所有東西 */
+.question.completed {
+  opacity: 0.8;
+  /* 整體稍微變淡一點點即可，不要全變色 */
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* 圓圈跟文字距離微調 */
+  cursor: pointer;
+  margin: 8px 0;
+  /* 原本 10px → 縮一點 */
+  font-size: 20px;
+  /* 選項字變大 */
+  line-height: 1.4;
+  /* 行距縮 */
+  letter-spacing: 0.015em;
+}
+
+.option:has(input:checked) {
+  color: #faefbc;
+  /* 選中時文字變亮黃色 */
+}
+
+.option input {
+  display: none;
+  /* 把原本 radio 藏起來 */
+}
+
+.custom-radio {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #b69754;
+  border-radius: 50%;
+  position: relative;
+}
+
+.option input:checked+.custom-radio::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #555;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*返回鍵*/
+.prev-btn {
+  background: transparent;
+  border: 1.5px solid rgb(236, 238, 134);
+  color: #faefbc;
+  padding: 8px 18px;
+  border-radius: 999px;
+  /* 膠囊感 */
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 20px;
+}
+
+.prev-btn:hover {
+
+  border-color: #fffd97;
+  background: rgba(137, 122, 190, 0.479);
+  transform: translateX(-2px);
+}
+
+body {
+  background-image: url('https://raw.githubusercontent.com/jam57001/eveleen/main/images/background-universe.png');
+}
+
+main {
+  color: #faefbc;
+  /* 1. 引用 GitHub 資料夾內的圖片 */
+  background-image: url('https://raw.githubusercontent.com/jam57001/eveleen/refs/heads/main/images/%E4%B8%8B%E8%BC%89%202.jpg');
+
+  /* 2. 設定容器高度 (這是新手最常漏掉的) */
+  /* 如果容器內沒內容，背景圖預設高度會是 0，導致你看不到圖片 */
+  height: 2500px;
+
+  /* 3. 背景定位細節 */
+  background-repeat: no-repeat;
+  /* 防止圖片像磁磚一樣重複出現 */
+  background-position: center;
+  /* 圖片對準容器的正中央（重要！） */
+  background-size: cover;
+  /* 讓圖片自動縮放「鋪滿」整個 2500px 的高度 */
+}
+
+/* --- 第二層：手機版規則（只有小螢幕會執行） --- */
+@media (max-width: 768px) {
+  .banner {
+    height: 300px;
+    /* 手機版變短一點，才不會佔滿整格畫面 */
+    background-image: url('https://raw.githubusercontent.com/jam57001/eveleen/refs/heads/main/images/%E4%B8%8B%E8%BC%89%202.jpg');
+    /* 你甚至可以換一張直式的圖 */
+  }
+}
+
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+}
+
+h1 img {
+  border-radius: 20%;
+  width: 50px;
+  height: 50px;
+
+}
+
+.header-container {
+  display: flex;
+  /* 開啟彈性佈局 */
+  align-items: center;
+  /* 關鍵：讓子元素在垂直方向的中線對齊 */
+  justify-content: center;
+  /* 方案 A：讓整組內容在畫面「水平置中」 */
+  gap: 12px;
+  /* 圖片與文字之間的間距 */
+  padding: 10px;
+}
+
+.rounded-icon {
+  width: 50px;
+  /* 根據需求調整大小 */
+  height: 50px;
+  border-radius: 12px;
+  /* 實現你想要的圓角方形 (Squircle 風格) */
+  object-fit: cover;
+}
+
+.title {
+  color: #FFF5D7;
+  /* 模擬你圖片中的淡黃色文字 */
+  font-size: 24px;
+  margin: 0;
+  /* 移除標題預設的上下邊距，避免干擾對齊 */
+}
+
+.form {
+  margin: 3cm 7cm;
+}
