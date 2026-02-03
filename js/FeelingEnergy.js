@@ -1,4 +1,4 @@
-const alreadyDrawnPage = "DailyEnergyGuide_Answer/DailyEnergyGuide_Limited.html";
+const alreadyDrawnPage = "FeelingEnergy_Answer/FeelingEnergy_Limited.html";
 const btnDraw = document.querySelector('.btn-draw');
 const container = document.querySelector('.main-container');
 const mainCard = document.querySelector('.card-inner');
@@ -11,11 +11,11 @@ btnDraw.addEventListener('click', function() {
     // 1. 檢查日期限制
     const today = new Date().toISOString().slice(0, 10);
     const lastDrawDate = localStorage.getItem('lastDrawDate');
-    
+    /*
    if (lastDrawDate === today) {
         window.location.href = alreadyDrawnPage;
         return; // 攔截，不讓後面的程式碼執行
-    }
+    }*/
 
     // 2. 執行洗牌前置動畫
     btnDraw.classList.add('fade-out');
@@ -59,7 +59,7 @@ function setupThreeCards() {
 
 function createFake() {
     const div = document.createElement('div');
-    div.innerHTML = `<img src="image/Card_backSide_fixed.png" class="card-image">`;
+    div.innerHTML = `<img src="image/CardC_backSide_fixed.png" class="card-image">`;
     return div;
 }
 
@@ -93,18 +93,18 @@ function finishShuffle() {
 
         setTimeout(() => {
             const resultPages = [
-                'DailyEnergyGuide_Answer/GuideAnswer_A01.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A02.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A03.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A04.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A05.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A06.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A07.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A08.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A09.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A10.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A11.html', 
-                'DailyEnergyGuide_Answer/GuideAnswer_A12.html'  
+                'FeelingEnergy_Answer/FeelingAnswer_A01.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_A02.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_A03.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_B01.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_B02.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_B03.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_C01.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_C02.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_C03.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_D01.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_D02.html', 
+                'FeelingEnergy_Answer/FeelingAnswer_D03.html', 
             ];
             
             const randomIndex = Math.floor(Math.random() * resultPages.length);
