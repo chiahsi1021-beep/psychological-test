@@ -320,8 +320,9 @@ html, body {
   display: inline-block;
   text-decoration: none;
 }
-
-
+h6 {
+    font-size: 14px;
+}
 /* 資訊欄 (Footer) - 滿版設計 */
 .info-bar {
     position: relative;
@@ -348,7 +349,7 @@ html, body {
 }
 
 .footer-content p {
-    font-size: clamp(16px, 2.5vw, 20px); 
+    font-size: clamp(20px, 2.5vw, 20px); 
     margin-bottom: 20px;
     line-height: 1.6;
 }

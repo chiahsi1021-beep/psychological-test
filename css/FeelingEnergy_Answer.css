@@ -1,0 +1,406 @@
+/* 基礎設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #eeeeee;
+}
+
+/* 1. Nav 樣式 */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    background: #0f112d;
+    border-bottom: 1px solid #444;
+}
+
+.logo {
+    display: flex;      
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: auto;
+    display: block;
+}
+
+.lab-title{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ccc;
+    white-space: nowrap;
+}
+
+/* 2. 背景容器 (星空) */
+.main-container {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+
+    /* --- 背景設定開始 --- */
+    background-image: url('../image/StarrySky_C.jpg'); 
+    background-size: cover;      
+    background-position: center; 
+    background-attachment: fixed; /* (選用) 捲動時背景固定不動，更有深邃感 */
+    background-repeat: no-repeat;
+
+}
+
+/* 卡牌區塊垂直排列 */
+.card-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    padding: 25px 30px;
+    border-radius: 20px;
+    background-color: #f0a9bfb3;
+}
+
+/* 3. 標題與裝飾 */
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    font-family: 'Noto Sans TC', "Microsoft JhengHei", serif;
+}
+
+.card-title::before, .card-title::after {
+    content: ""; 
+    display: inline-block;
+    width: 24px;  
+    height: 24px; 
+    margin: 0 50px;
+    background-image: url('../image/CardC_Icon01.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+
+    filter: brightness(1) saturate(1.3) hue-rotate(0deg)
+} 
+
+/* 4. 副標題 */
+.card-subtitle {
+    font-size: 1rem;
+    color: #085100;
+    margin-bottom: 30px;
+    font-family: 'Noto Serif TC', "Microsoft JhengHei", serif;
+}
+
+/* --- 5. 卡牌容器 (維持 1504:2624 比例) --- */
+.card-display {
+    width: 310px; 
+    height: 573px; 
+    perspective: 1000px; /* 3D 深度感 */
+    cursor: pointer;
+    margin: 0 auto 30px auto;
+    max-width: 90vw;     /* 確保手機不溢出 */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+/* 翻轉後的狀態 */
+.card-display.is-flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* 翻轉時隱藏另一面 */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #444;
+}
+
+/* --- 5.1 卡牌正面 (文字設定) --- */
+.card-front {
+    --theme-color: #F2D8A7;
+    --sub-glow-color: color-mix(in srgb, var(--theme-color), black 20%);
+    
+    position: relative; 
+    transform: rotateY(180deg); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;   
+    padding-top: 100px;
+
+    overflow: hidden;          
+    border-radius: 15px;
+    background: #1a1a1a; 
+
+}
+.card-front::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url('../image/CardC_frontSide_fixed.png');
+    background-size: cover;
+    background-position: center;
+    
+    /* 核心功能：套用變數濾鏡，如果 HTML 沒給值，預設為 0deg (原色) */
+    filter: hue-rotate(var(--hue-setting, 0deg));
+    /* 在底色之上 */
+    z-index: 1;               
+    transition: filter 0.5s ease;
+}
+    /* 數字大於背景的 z-index */
+.card-front > * {
+    position: relative;
+    z-index: 2;               
+}
+
+
+.front-title {
+    color: var(--theme-color);
+    text-shadow: 0 0 8px var(--sub-glow-color);
+
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    text-align: center;
+    font-family: 'Noto Serif TC', "Microsoft JhengHei", serif;
+
+    display: flex;
+    align-items: center;      
+    justify-content: center;  
+    gap: 15px;
+
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.title-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;      /* 確保圖片比例不變形 */
+    flex-shrink: 0;           /* 確保圖片不會因為文字多而被擠扁 */
+    filter: drop-shadow(0 0 5px var(--sub-glow-color));
+}
+
+.front-title span {
+    display: inline-block;
+}
+
+
+
+
+.vertical-text {
+    writing-mode: vertical-rl; 
+    color: #eeeeee;
+    font-size: 0.8rem;
+    line-height: 2.4;   /* 行間距 */
+    letter-spacing: 6px; /* 字間距 */
+    font-family: 'Noto Serif TC', "Microsoft JhengHei", serif;
+    
+    /* 電腦版高度：足以容納一排文字 */
+    height: 300px; 
+    margin: 0 auto;
+    transition: height 0.3s ease;
+}
+
+/* --- 5.2 卡牌背面 (圖片設定) --- */
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保 1504x2624 圖片完美填滿 */
+}
+
+/* ------------------------------------------------ */
+/* 手機版響應式設定 */
+@media (max-width: 480px) {
+    .card-display {
+        width: 250px;   /* 手機端稍微縮小 */
+        height: 600px;  /* 維持相同比例 */
+    }
+
+    .vertical-text {
+        /* 縮短高度，迫使文字折返成兩排 */
+        height: 250px; 
+        font-size: 1.1rem;
+    }
+}
+
+
+/* --- 卡牌背面 (初始看到的樣子) --- */
+.card-back {
+    z-index: 2;
+    background-color: #333;
+    transform: rotateY(0deg);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 13px;
+}
+
+/* 6. Footer 小行動 */
+.card-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(47, 30, 45, 0.3);
+    padding: 15px 25px;
+    border-radius: 50px;
+    margin-bottom: 40px;
+    border: 1px solid #333;
+    
+    transition: all 0.8s ease; 
+    filter: brightness(0.4) blur(3px);
+    opacity: 0.5;                    
+    pointer-events: none;
+}
+
+.card-footer.is-visible {
+    filter: brightness(0.5) blur(0);  
+    animation: flash-bright 0.5s ease-out forwards;
+    opacity: 1;                       
+    background: rgba(71, 58, 71, 0.5); 
+    border: 1px solid rgba(118, 103, 118, 0.5); 
+    pointer-events: auto;         
+}
+/* 中間爆發強光 */
+@keyframes flash-bright {
+    0% { filter: brightness(0.3) blur(2px); }
+    60% { filter: brightness(3) blur(0); } 
+    100% { filter: brightness(1) blur(0); }
+}
+
+.card-footer:hover {
+    background-color: rgba(38, 19, 33, 0.6);
+}
+
+.card-footer-text{
+    font-family: 'Noto Serif TC', "Microsoft JhengHei", serif;
+    color: #eeeeee;
+    font-size: 0.8rem;
+}
+
+.leaf-icon img { 
+    display: flex;
+    width: 30px;
+    height: auto;
+}
+
+/* 7. 按鈕群組 */
+.button-group {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 30px; 
+    border: none;
+    outline: none;      
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+
+    filter: hue-rotate(var(--btn-hue, 0deg));
+}
+
+.btn-share {
+    background-color: #673562;
+    color: white;
+}
+
+.btn-share:hover {
+    background-color: #a6519e;
+}
+
+.btn-home {
+    background-color: #3b2738ae;
+    color: #aaa;
+    border: 1px solid #89678570;
+}
+
+.btn-home:hover {
+    background-color: #bb6db1a9;
+    color: white;
+}
+
+
+
+h6 {
+    font-size: 14px;
+}
+
+.info-bar {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+    min-height: 150px;
+    background: rgba(217, 217, 217); 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 20px;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    text-align: center;
+    color: #333;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.footer-content p {
+    font-size: clamp(20px, 2.5vw, 20px); 
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.footer-links {
+    font-size: clamp(12px, 2vw, 14px); 
+    color: #666;
+}
+
+.footer-links span {
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-links span:hover {
+    color: #000;
+}
