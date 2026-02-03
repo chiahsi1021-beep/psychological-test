@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>人格宇宙研究室</title>
+       <link rel="stylesheet" href="project3.css">
+       <link rel="shortcut icon" href="https://raw.githubusercontent.com/jam57001/eveleen/main/images/logo.png">
+</head>
+
+<body>
+       <nav class="navbar">      
+              <div class="logo">
+                     <img src="https://raw.githubusercontent.com/jam57001/eveleen/main/images/logo.png" alt="Logo">      
+              </div>    
+              <div class="lab-title">人格宇宙研究室
+              </div>
+       </nav>
+       <main>
+              <div class="header-container">
+                     <img src="https://raw.githubusercontent.com/jam57001/eveleen/main/images/潛意識 ICON.jpg"
+                            class="icon">
+                     <h1 class="title">你的壓力能量主要來自哪裡</h1>
+              </div>
+              <div class="form ">
+                     <div class="question active" id="q1">
+                            <p>Q1. 最近讓你最疲累的是？</p>
+                            <label class="option">
+                                   <input type="radio" name="q1" data-step="1" value="A">
+                                   <span class="custom-radio"></span>A. 要一直撐著表現</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q1" data-step="1" value="B">
+                                   <span class="custom-radio"></span>B. 人際關係的消耗</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q1" data-step="1" value="C">
+                                   <span class="custom-radio"></span>C. 未來的不確定</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q1" data-step="1" value="D">
+                                   <span class="custom-radio"></span>D. 做不完的事情</label>
+                     </div>
+
+                     <div class="question" id="q2">
+                            <p>Q2. 當你感到壓力時，通常會？</p>
+                            <label class="option">
+                                   <input type="radio" name="q2" data-step="2" value="A">
+                                   <span class="custom-radio"></span>A. 逼自己更努力</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q2" data-step="2" value="B">
+                                   <span class="custom-radio"></span>B. 想逃離或躲起來</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q2" data-step="2" value="C">
+                                   <span class="custom-radio"></span>C. 一直想、停不下來</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q2" data-step="2" value="D">
+                                   <span class="custom-radio"></span>D. 感到身體很累</label>
+
+                            <button class="prev-btn">🌒上一題</button>
+                     </div>
+
+                     <div class="question" id="q3">
+                            <p>Q3. 你最常對自己說的是？</p>
+                            <label class="option">
+                                   <input type="radio" name="q3" data-step="3" value="A">
+                                   <span class="custom-radio"></span>A. 我還不夠好</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q3" data-step="3" value="B">
+                                   <span class="custom-radio"></span>B. 我是不是不被需要</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q3" data-step="3" value="C">
+                                   <span class="custom-radio"></span>C. 如果失敗怎麼辦</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q3" data-step="3" value="D">
+                                   <span class="custom-radio"></span>D. 我真的好累</label>
+
+                            <button class="prev-btn">🌔上一題</button>
+                     </div>
+
+                     <div class="question" id="q4">
+                            <p>Q4. 什麼最容易讓你情緒下滑？</p>
+
+                            <label class="option">
+                                   <input type="radio" name="q4" data-step="4" value="A">
+                                   <span class="custom-radio"></span>A. 被比較</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q4" data-step="4" value="B">
+                                   <span class="custom-radio"></span>B. 被忽略</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q4" data-step="4" value="C">
+                                   <span class="custom-radio"></span>C. 事情失控</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q4" data-step="4" value="D">
+                                   <span class="custom-radio"></span>D. 時間不夠</label>
+
+                            <button class="prev-btn">🌕上一題</button>
+                     </div>
+
+                     <div class="question" id="q5">
+                            <p>Q5. 你最害怕的是？</p>
+                            <label class="option">
+                                   <input type="radio" name="q5" data-step="5" value="A">
+                                   <span class="custom-radio"></span>A. 不被肯定</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q5" data-step="5" value="B">
+                                   <span class="custom-radio"></span>B. 失去連結</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q5" data-step="5" value="C">
+                                   <span class="custom-radio"></span>C. 做錯選擇</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q5" data-step="5" value="D">
+                                   <span class="custom-radio"></span>D. 撐不下去</label>
+
+                            <button class="prev-btn">🌖上一題</button>
+                     </div>
+
+                     <div class="question" id="q6">
+                            <p>Q6. 你最想擺脫的是？</p>
+                            <label class="option">
+                                   <input type="radio" name="q6" data-step="6" value="A">
+                                   <span class="custom-radio"></span>A. 對自己的高要求</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q6" data-step="6" value="B">
+                                   <span class="custom-radio"></span>B. 情感的拉扯</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q6" data-step="6" value="C">
+                                   <span class="custom-radio"></span>C. 腦中的焦慮</label>
+
+                            <label class="option">
+                                   <input type="radio" name="q6" data-step="6" value="D">
+                                   <span class="custom-radio"></span>D. 身心的疲勞</label>
+
+                            <button class="prev-btn">🌘上一題</button>
+                     </div>
+              </div>
+
+       </main>
+       <script src="project3.js"></script>
+</body>
+<footer id="footer" class="info-bar">
+       <div class="footer-content">         
+              <p>探索心靈的深處，找回內在的平靜與力量</p>         
+              <h6>本網站內容僅供自我探索與情緒覺察之用，非專業心理諮詢或醫療建議。</h6>        
+              <div class="footer-links">           
+              <span>關於我們</span> | <span>隱私條款</span> | <span>聯繫窗口</span>
+              </div>                   
+       </div>
+</footer>
+</html>
