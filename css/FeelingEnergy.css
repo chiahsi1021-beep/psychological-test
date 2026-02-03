@@ -1,0 +1,210 @@
+/* --- 基礎設定 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #eeeeee;
+    overflow-x: hidden; /* 避免洗牌時牌飛出邊界導致出現捲軸 */
+}
+
+/* 1. Nav 樣式 */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    background: #0f112d;
+    border-bottom: 1px solid #444;
+}
+
+.logo {
+    display: flex;      
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: auto;
+    display: block;
+}
+
+.lab-title{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ccc;
+    white-space: nowrap;
+}
+
+
+/* 2. 背景容器與聚焦遮罩 */
+.main-container {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+
+    background-image: url('../image/StarrySky_C.jpg'); 
+    background-size: cover;      
+    background-position: center; 
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* 黑色聚焦漸層 (由 JS 切換 .focus-mode) */
+.main-container::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.9) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 8;
+}
+
+.main-container.focus-mode::after {
+    opacity: 1;
+}
+
+/* 3. 卡牌區塊與文字 */
+.card-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    padding: 25px 30px;
+    border-radius: 20px;
+    background-color: rgba(190, 227, 195, 0.6);
+    overflow: visible; /* 讓洗牌時左右的牌能顯示 */
+    position: relative;
+    z-index: 9;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    font-family: 'Noto Sans TC', "Microsoft JhengHei", serif;
+}
+
+.card-title::before, .card-title::after {
+    content: ""; 
+    display: inline-block;
+    width: 24px;  
+    height: 24px; 
+    margin: 0 40px;
+    background-image: url('../image/CardC_Icon01.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+
+    filter: brightness(1) saturate(1.3) hue-rotate(0deg)
+} 
+
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #084E00;
+    font-family: 'Noto Serif TC', "Microsoft JhengHei", serif;
+    margin-bottom: 30px;
+}
+
+/* --- 4. 卡牌容器核心 (三張牌戲法邏輯) --- */
+.card-display {
+    width: 280px; 
+    max-width: 80vw;
+    aspect-ratio: 1470 / 2624;
+    margin: 0 auto 30px auto;
+    position: relative;
+    z-index: 5;
+}
+
+/* 這是主牌 (.card-inner) 與 JS 生成牌 (.fake-card) 的共同基礎 */
+.card-inner, .fake-card {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-in-out, opacity 0.4s ease, filter 0.5s ease;
+    transform-origin: center;
+    background-color: #333;
+    overflow: hidden;
+}
+
+
+/* 卡牌背面圖片設定 */
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+/* --- 5. 洗牌位置定義 (由 JS 控制 class 切換) --- */
+.pos-left   { transform: translateX(-125px) scale(0.75) ; z-index: 5; opacity: 0.7; }
+.pos-center { transform: translateX(0) scale(0.95); z-index: 10; opacity: 1; }
+.pos-right  { transform: translateX(125px) scale(0.75); z-index: 5; opacity: 0.7; }
+
+/* --- 6. 最終動畫樣式 --- */
+@keyframes final-glow-fly {
+    0% { transform: scale(0.95); filter: brightness(1) drop-shadow(0 0 0 white); }
+    40% { transform: scale(0.8); filter: brightness(1.5) drop-shadow(0 0 20px rgb(104, 184, 120)); }
+    100% { transform: scale(3) translateY(-200vh); filter: brightness(3); opacity: 0; }
+}
+
+.fly-away {
+    animation: final-glow-fly 1.2s forwards cubic-bezier(0.7, 0, 0.3, 1) !important;
+    z-index: 100 !important;
+}
+
+/* --- 7. 按鈕樣式 --- */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.btn {
+    padding: 12px 40px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    font-family: 'Noto Serif TC', "Microsoft JhengHei", serif;
+}
+
+.btn-draw {
+    background-color: #077B24;
+    color: white;
+}
+
+.btn-draw:hover {
+    background-color: #57c673;
+    transform: scale(1.05);
+}
+
+.fade-out {
+    opacity: 0 !important;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: 0.5s;
+}
