@@ -311,8 +311,13 @@ html, body {
     text-align: center;
 }
 h6 {
+    font-family: 'Noto Serif TC';
     font-size: 14px;
+    font-weight: 400;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
+
 /* 資訊欄 */
 .info-bar {
     position: relative;
@@ -339,7 +344,8 @@ h6 {
 }
 
 .footer-content p {
-    font-size: clamp(16px, 2.5vw, 20px); 
+    font-family: 'Noto Serif TC';
+    font-size: clamp(20px, 2.5vw, 20px); 
     margin-bottom: 20px;
     line-height: 1.6;
 }
