@@ -310,7 +310,9 @@ html, body {
     font-weight: 700;
     text-align: center;
 }
-
+h6 {
+    font-size: 14px;
+}
 /* 資訊欄 */
 .info-bar {
     position: relative;

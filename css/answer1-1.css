@@ -310,7 +310,9 @@ html, body {
     font-weight: 700;
     text-align: center;
 }
-
+h6 {
+    font-size: 14px;
+}
 /* 資訊欄 */
 .info-bar {
     position: relative;
@@ -337,7 +339,7 @@ html, body {
 }
 
 .footer-content p {
-    font-size: clamp(16px, 2.5vw, 20px); 
+    font-size: clamp(20px, 2.5vw, 20px); 
     margin-bottom: 20px;
     line-height: 1.6;
 }
