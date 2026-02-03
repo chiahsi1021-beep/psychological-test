@@ -213,16 +213,20 @@ body {
 
 
 h6 {
+    font-family: 'Noto Serif TC';
     font-size: 14px;
+    font-weight: 400;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
-
+/* 資訊欄 */
 .info-bar {
     position: relative;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     height: auto;
     min-height: 150px;
-    background: rgba(217, 217, 217); 
+    background: #D9D9D9; 
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -240,6 +244,7 @@ h6 {
 }
 
 .footer-content p {
+    font-family: 'Noto Serif TC';
     font-size: clamp(20px, 2.5vw, 20px); 
     margin-bottom: 20px;
     line-height: 1.6;
