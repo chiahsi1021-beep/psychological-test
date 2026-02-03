@@ -256,6 +256,13 @@ body {
     z-index: 2;
     background-color: #333;
     transform: rotateY(0deg);
+    transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-display:hover .card-back {
+    filter: brightness(1.2); 
+    transform: scale(1.02); 
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7); 
 }
 
 .card-image {
@@ -263,6 +270,7 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 13px;
+    display: block;
 }
 
 /* 6. Footer 小行動 */
@@ -351,4 +359,52 @@ body {
 .btn-home:hover {
     background-color: #bb6db1a9;
     color: white;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+.info-bar {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+    min-height: 150px;
+    background: rgba(217, 217, 217); 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 20px;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    text-align: center;
+    color: #333;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.footer-content p {
+    font-size: clamp(20px, 2.5vw, 20px); 
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.footer-links {
+    font-size: clamp(12px, 2vw, 14px); 
+    color: #666;
+}
+
+.footer-links span {
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-links span:hover {
+    color: #000;
 }
