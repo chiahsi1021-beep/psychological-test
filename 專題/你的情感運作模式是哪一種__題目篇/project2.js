@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function showStep(step) {
     const target = document.getElementById("q" + step);
     if (target) {
-      questions.forEach(q => q.classList.remove("active"));
+      questions.forEach((q) => q.classList.remove("active"));
       target.classList.add("active");
       currentStep = step;
       target.scrollIntoView({
         behavior: "smooth",
-        block: "center"
+        block: "center",
       });
     }
   }
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         prevQ.scrollIntoView({
           behavior: "smooth",
-          block: "start"
+          block: "start",
         });
       }
 
@@ -81,17 +81,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // === 計算結果示意（你可以換成導向頁面） ===
   function calculateResult() {
     const answers = {};
-    radios.forEach(r => {
+    radios.forEach((r) => {
       if (r.checked) answers[r.dataset.step] = r.value;
     });
 
     const count = { A: 0, B: 0, C: 0, D: 0 };
-    Object.values(answers).forEach(ans => { if (count[ans] !== undefined) count[ans]++; });
+    Object.values(answers).forEach((ans) => {
+      if (count[ans] !== undefined) count[ans]++;
+    });
 
     let resultType = "A";
     let max = 0;
     for (let key in count) {
-      if (count[key] > max) { max = count[key]; resultType = key; }
+      if (count[key] > max) {
+        max = count[key];
+        resultType = key;
+      }
     }
 
     // 導向對應結果頁
@@ -100,10 +105,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function goToResult(type) {
     switch (type) {
-      case "A": window.location.href = "../../answer2-1.html"; break;
-      case "B": window.location.href = "../../answer2-2.html"; break;
-      case "C": window.location.href = "../../answer2-3.html"; break;
-      case "D": window.location.href = "../../answer2-4.html"; break;
+      case "A":
+        window.location.href = "../../answers/answer2-1.html";
+        break;
+      case "B":
+        window.location.href = "../../answers/answer2-2.html";
+        break;
+      case "C":
+        window.location.href = "../../answers/answer2-3.html";
+        break;
+      case "D":
+        window.location.href = "../../answers/answer2-4.html";
+        break;
     }
   }
 });
