@@ -1,167 +1,202 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>人格宇宙研究室</title>
+    <link rel="stylesheet" href="project2.css" />
+    <link
+      rel="shortcut icon"
+      href="https://raw.githubusercontent.com/jam57001/eveleen/main/images/logo.png"
+    />
+  </head>
 
-<head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>人格宇宙研究室</title>
-       <link rel="stylesheet" href="project2.css">
-       <link rel="shortcut icon" href="https://raw.githubusercontent.com/jam57001/eveleen/main/images/logo.png">
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img
+          src="https://raw.githubusercontent.com/jam57001/eveleen/main/images/logo.png"
+          alt="Logo"
+        />
+      </div>
+      <div class="lab-title">人格宇宙研究室</div>
+    </nav>
+    <main>
+      <div class="header-container">
+        <img
+          src="https://raw.githubusercontent.com/jam57001/eveleen/main/images/你的情感運作模式是哪一種.icon.jpg"
+          width="50px"
+          ;
+          height="50px"
+          ;
+          class="rounded-icon"
+        />
+        <h1 class="title">你的情感運作模式是哪一種？</h1>
+      </div>
+      <div class="form">
+        <div class="question active" id="q1">
+          <p>Q1. 當你喜歡上一個人時，你通常會？</p>
+          <label class="option">
+            <input type="radio" name="q1" data-step="1" value="A" />
+            <span class="custom-radio"></span>A. 主動靠近，表達感受</label
+          >
 
-</head>
+          <label class="option">
+            <input type="radio" name="q1" data-step="1" value="B" />
+            <span class="custom-radio"></span>B. 觀察很久，確認安全</label
+          >
 
-<body>
+          <label class="option">
+            <input type="radio" name="q1" data-step="1" value="C" />
+            <span class="custom-radio"></span>C. 想很多，分析對方</label
+          >
 
-       <nav class="navbar">      
-              <div class="logo">
-                     <img src="https://raw.githubusercontent.com/jam57001/eveleen/main/images/logo.png" alt="Logo">      
-              </div>    
-              <div class="lab-title">人格宇宙研究室
-              </div>
-       </nav>
-       <main>
-              <div class="header-container">
-                     <img src="https://raw.githubusercontent.com/jam57001/eveleen/main/images/你的情感運作模式是哪一種.icon.jpg"
-                            width="50px" ; height="50px" ; class="rounded-icon">
-                     <h1 class="title">你的情感運作模式是哪一種？</h1>
-              </div>
-              <div class="form ">
-                     <div class="question active" id="q1">
-                            <p>Q1. 當你喜歡上一個人時，你通常會？</p>
-                            <label class="option">
-                                   <input type="radio" name="q1" data-step="1" value="A">
-                                   <span class="custom-radio"></span>A. 主動靠近，表達感受</label>
+          <label class="option">
+            <input type="radio" name="q1" data-step="1" value="D" />
+            <span class="custom-radio"></span>D. 默默在心裡感受</label
+          >
+        </div>
 
-                            <label class="option">
-                                   <input type="radio" name="q1" data-step="1" value="B">
-                                   <span class="custom-radio"></span>B. 觀察很久，確認安全</label>
+        <div class="question" id="q2">
+          <p>Q2. 當關係出現距離時，你內心最接近的是？</p>
+          <label class="option">
+            <input type="radio" name="q2" data-step="2" value="A" />
+            <span class="custom-radio"></span>A. 想做點什麼挽回</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q1" data-step="1" value="C">
-                                   <span class="custom-radio"></span>C. 想很多，分析對方</label>
+          <label class="option">
+            <input type="radio" name="q2" data-step="2" value="B" />
+            <span class="custom-radio"></span>B. 想保護自己不受傷</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q1" data-step="1" value="D">
-                                   <span class="custom-radio"></span>D. 默默在心裡感受</label>
-                     </div>
+          <label class="option">
+            <input type="radio" name="q2" data-step="2" value="C" />
+            <span class="custom-radio"></span>C. 想知道原因</label
+          >
 
-                     <div class="question" id="q2">
-                            <p>Q2. 當關係出現距離時，你內心最接近的是？</p>
-                            <label class="option">
-                                   <input type="radio" name="q2" data-step="2" value="A">
-                                   <span class="custom-radio"></span>A. 想做點什麼挽回</label>
+          <label class="option">
+            <input type="radio" name="q2" data-step="2" value="D" />
+            <span class="custom-radio"></span>D. 感到失落與不安</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q2" data-step="2" value="B">
-                                   <span class="custom-radio"></span>B. 想保護自己不受傷</label>
+          <button class="prev-btn">🌒上一題</button>
+        </div>
 
-                            <label class="option">
-                                   <input type="radio" name="q2" data-step="2" value="C">
-                                   <span class="custom-radio"></span>C. 想知道原因</label>
+        <div class="question" id="q3">
+          <p>Q3. 你在關係中最需要的是？</p>
+          <label class="option">
+            <input type="radio" name="q3" data-step="3" value="A" />
+            <span class="custom-radio"></span>A. 行動與回應</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q2" data-step="2" value="D">
-                                   <span class="custom-radio"></span>D. 感到失落與不安</label>
+          <label class="option">
+            <input type="radio" name="q3" data-step="3" value="B" />
+            <span class="custom-radio"></span>B. 安全與穩定</label
+          >
 
-                            <button class="prev-btn">🌒上一題</button>
-                     </div>
+          <label class="option">
+            <input type="radio" name="q3" data-step="3" value="C" />
+            <span class="custom-radio"></span>C. 清楚與理解</label
+          >
 
-                     <div class="question" id="q3">
-                            <p>Q3. 你在關係中最需要的是？</p>
-                            <label class="option">
-                                   <input type="radio" name="q3" data-step="3" value="A">
-                                   <span class="custom-radio"></span>A. 行動與回應</label>
+          <label class="option">
+            <input type="radio" name="q3" data-step="3" value="D" />
+            <span class="custom-radio"></span>D. 情感與連結</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q3" data-step="3" value="B">
-                                   <span class="custom-radio"></span>B. 安全與穩定</label>
+          <button class="prev-btn">🌔上一題</button>
+        </div>
 
-                            <label class="option">
-                                   <input type="radio" name="q3" data-step="3" value="C">
-                                   <span class="custom-radio"></span>C. 清楚與理解</label>
+        <div class="question" id="q4">
+          <p>Q4. 當對方情緒低落時，你會？</p>
 
-                            <label class="option">
-                                   <input type="radio" name="q3" data-step="3" value="D">
-                                   <span class="custom-radio"></span>D. 情感與連結</label>
+          <label class="option">
+            <input type="radio" name="q4" data-step="4" value="A" />
+            <span class="custom-radio"></span>A. 想馬上陪伴、解決</label
+          >
 
-                            <button class="prev-btn">🌔上一題</button>
-                     </div>
+          <label class="option">
+            <input type="radio" name="q4" data-step="4" value="B" />
+            <span class="custom-radio"></span>B. 想給對方空間</label
+          >
 
-                     <div class="question" id="q4">
-                            <p>Q4. 當對方情緒低落時，你會？</p>
+          <label class="option">
+            <input type="radio" name="q4" data-step="4" value="C" />
+            <span class="custom-radio"></span>C. 試著分析原因</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q4" data-step="4" value="A">
-                                   <span class="custom-radio"></span>A. 想馬上陪伴、解決</label>
+          <label class="option">
+            <input type="radio" name="q4" data-step="4" value="D" />
+            <span class="custom-radio"></span>D. 感同身受，很容易被影響</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q4" data-step="4" value="B">
-                                   <span class="custom-radio"></span>B. 想給對方空間</label>
+          <button class="prev-btn">🌕上一題</button>
+        </div>
 
-                            <label class="option">
-                                   <input type="radio" name="q4" data-step="4" value="C">
-                                   <span class="custom-radio"></span>C. 試著分析原因</label>
+        <div class="question" id="q5">
+          <p>Q5. 面對衝突，你更常？</p>
+          <label class="option">
+            <input type="radio" name="q5" data-step="5" value="A" />
+            <span class="custom-radio"></span>A. 直接說開</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q4" data-step="4" value="D">
-                                   <span class="custom-radio"></span>D. 感同身受，很容易被影響</label>
+          <label class="option">
+            <input type="radio" name="q5" data-step="5" value="B" />
+            <span class="custom-radio"></span>B. 先退一步</label
+          >
 
-                            <button class="prev-btn">🌕上一題</button>
-                     </div>
+          <label class="option">
+            <input type="radio" name="q5" data-step="5" value="C" />
+            <span class="custom-radio"></span>C. 想清楚再談</label
+          >
 
-                     <div class="question" id="q5">
-                            <p>Q5. 面對衝突，你更常？</p>
-                            <label class="option">
-                                   <input type="radio" name="q5" data-step="5" value="A">
-                                   <span class="custom-radio"></span>A. 直接說開</label>
+          <label class="option">
+            <input type="radio" name="q5" data-step="5" value="D" />
+            <span class="custom-radio"></span>D. 內心很糾結</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q5" data-step="5" value="B">
-                                   <span class="custom-radio"></span>B. 先退一步</label>
+          <button class="prev-btn">🌖上一題</button>
+        </div>
 
-                            <label class="option">
-                                   <input type="radio" name="q5" data-step="5" value="C">
-                                   <span class="custom-radio"></span>C. 想清楚再談</label>
+        <div class="question" id="q6">
+          <p>Q6. 你最害怕的是？</p>
+          <label class="option">
+            <input type="radio" name="q6" data-step="6" value="A" />
+            <span class="custom-radio"></span>A. 關係停滯</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q5" data-step="5" value="D">
-                                   <span class="custom-radio"></span>D. 內心很糾結</label>
+          <label class="option">
+            <input type="radio" name="q6" data-step="6" value="B" />
+            <span class="custom-radio"></span>B. 受傷或失去</label
+          >
 
-                            <button class="prev-btn">🌖上一題</button>
-                     </div>
+          <label class="option">
+            <input type="radio" name="q6" data-step="6" value="C" />
+            <span class="custom-radio"></span>C. 被誤解</label
+          >
 
-                     <div class="question" id="q6">
-                            <p>Q6. 你最害怕的是？</p>
-                            <label class="option">
-                                   <input type="radio" name="q6" data-step="6" value="A">
-                                   <span class="custom-radio"></span>A. 關係停滯</label>
+          <label class="option">
+            <input type="radio" name="q6" data-step="6" value="D" />
+            <span class="custom-radio"></span>D. 不被在乎</label
+          >
 
-                            <label class="option">
-                                   <input type="radio" name="q6" data-step="6" value="B">
-                                   <span class="custom-radio"></span>B. 受傷或失去</label>
-
-                            <label class="option">
-                                   <input type="radio" name="q6" data-step="6" value="C">
-                                   <span class="custom-radio"></span>C. 被誤解</label>
-
-                            <label class="option">
-                                   <input type="radio" name="q6" data-step="6" value="D">
-                                   <span class="custom-radio"></span>D. 不被在乎</label>
-
-                            <button class="prev-btn">🌘上一題</button>
-                     </div>
-              </div>
-
-       </main>
-       <script src="project2.js"></script>
-</body>
-<footer id="footer" class="info-bar">
-       <div class="footer-content">         
-              <p>探索心靈的深處，找回內在的平靜與力量</p>         
-              <h6>本網站內容僅供自我探索與情緒覺察之用，非專業心理諮詢或醫療建議。</h6>        
-              <div class="footer-links">           
-              <span>關於我們</span> | <span class="nav-link" onclick="location.href='Home/Home.html'">首頁</span> | <span>聯繫窗口</span>
-              </div>                   
-       </div>
-</footer>
+          <button class="prev-btn">🌘上一題</button>
+        </div>
+      </div>
+    </main>
+    <script src="project2.js"></script>
+  </body>
+  <footer id="footer" class="info-bar">
+    <div class="footer-content">
+      <p>探索心靈的深處，找回內在的平靜與力量</p>
+      <h6>本網站內容僅供自我探索與情緒覺察之用，非專業心理諮詢或醫療建議。</h6>
+      <div class="footer-links">
+        <span>關於我們</span> |
+        <span class="nav-link" onclick="location.href='../index.html'"
+          >首頁</span
+        >
+        | <span>聯繫窗口</span>
+      </div>
+    </div>
+  </footer>
 </html>

@@ -1,61 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FeelingEnergy</title>
+    <link rel="stylesheet" href="../css/FeelingEnergy_Answer.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FeelingEnergy</title>
-  <link rel="stylesheet" href="../css/FeelingEnergy_Answer.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <nav class="navbar">
+  <body>
+    <nav class="navbar">
       <div class="logo">
-        <img src="../image/logo.png" alt="Logo">
+        <img src="../image/logo.png" alt="Logo" />
       </div>
-    <div class="lab-title">人格宇宙研究室</div>
-  </nav>
+      <div class="lab-title">人格宇宙研究室</div>
+    </nav>
 
-  <main class="main-container">
-
-    <section class="card-section" style="background-color:#6eb170b3;">
-
-      <div class="card-header">
-        <h1 class="card-title">情緒能量卡</h1>
-      </div>
-
-      <p class="card-subtitle">看看你此刻最需要的情緒能量</p>
-
-        <div class="card-display" onclick="flipCard(this)">
-          
-            <div class="card-inner">
-              <div class="card-front" style="--sub-glow-color: #ffa601;">
-                <h2 class="front-title" style="color: #aea7f2;">放過自己</h2>
-                <div class="vertical-text">
-                  你不需要用表現證明你的價值。<br>你已經夠努力了。
-                </div> 
-              </div>
-              <div class="card-back">
-                <img src="../image/CardC_backSide_fixed.png" alt="卡牌背面" class="card-image">
-              </div>
-            </div>
-          </div>
-
-        <div class="card-footer">
-          <span class="leaf-icon"><img src="../image/CardC_Icon02.png"></span>
-          <p class="card-footer-text">小照顧： 今天，允許一件事不用做到完美。</p>
+    <main class="main-container">
+      <section class="card-section" style="background-color: #6eb170b3">
+        <div class="card-header">
+          <h1 class="card-title">情緒能量卡</h1>
         </div>
 
-      <div class="button-group">
-        <button id="btnShare" class="btn btn-share" style="--btn-hue: 120deg;">分享結果</button>
-        <a href="../Home/Home.html" class="btn btn-home" style="--btn-hue: 0deg;">回首頁</a>
-      </div>
+        <p class="card-subtitle">看看你此刻最需要的情緒能量</p>
 
-    </section>
-  </main>
+        <div class="card-display" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front" style="--sub-glow-color: #ffa601">
+              <h2 class="front-title" style="color: #aea7f2">放過自己</h2>
+              <div class="vertical-text">
+                你不需要用表現證明你的價值。<br />你已經夠努力了。
+              </div>
+            </div>
+            <div class="card-back">
+              <img
+                src="../image/CardC_backSide_fixed.png"
+                alt="卡牌背面"
+                class="card-image"
+              />
+            </div>
+          </div>
+        </div>
 
-  <script src="../js/FeelingEnergy_Answer.js"></script>
-</body>
+        <div class="card-footer">
+          <span class="leaf-icon"><img src="../image/CardC_Icon02.png" /></span>
+          <p class="card-footer-text">
+            小照顧： 今天，允許一件事不用做到完美。
+          </p>
+        </div>
 
+        <div class="button-group">
+          <button id="btnShare" class="btn btn-share" style="--btn-hue: 120deg">
+            分享結果
+          </button>
+          <a href="../index.html" class="btn btn-home" style="--btn-hue: 0deg"
+            >回首頁</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/FeelingEnergy_Answer.js"></script>
+  </body>
 </html>

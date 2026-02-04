@@ -1,72 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DailyEnergyGuide</title>
+    <link rel="stylesheet" href="../css/GuideAnswer_A.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DailyEnergyGuide</title>
-  <link rel="stylesheet" href="../css/GuideAnswer_A.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <nav class="navbar">
+  <body>
+    <nav class="navbar">
       <div class="logo">
-        <img src="../image/logo.png" alt="Logo">
+        <img src="../image/logo.png" alt="Logo" />
       </div>
-    <div class="lab-title">人格宇宙研究室</div>
-  </nav>
+      <div class="lab-title">人格宇宙研究室</div>
+    </nav>
 
-  <main class="main-container">
+    <main class="main-container">
+      <section class="card-section">
+        <div class="card-header">
+          <h1 class="card-title">每日能量指引</h1>
+        </div>
 
-    <section class="card-section">
-
-      <div class="card-header">
-        <h1 class="card-title">每日能量指引</h1>
-      </div>
-
-      <p class="card-subtitle">抽一張，接收此刻的指引</p>
+        <p class="card-subtitle">抽一張，接收此刻的指引</p>
 
         <div class="card-display" onclick="flipCard(this)">
-          
-            <div class="card-inner">
-              <div class="card-front" style="--hue-setting: -30deg; --sub-glow-color: #9CFF91;">
-                <h3 class="front-title" style="color: #9CFF91;">放慢腳步</h3>
-                <div class="vertical-text">
-                  你不需要現在就有答案，先讓心靜下來。
-                </div>
-              </div>
-              <div class="card-back">
-                <img src="../image/Card_backSide_fixed.png" alt="卡牌背面" class="card-image">
+          <div class="card-inner">
+            <div
+              class="card-front"
+              style="--hue-setting: -30deg; --sub-glow-color: #9cff91"
+            >
+              <h3 class="front-title" style="color: #9cff91">放慢腳步</h3>
+              <div class="vertical-text">
+                你不需要現在就有答案，先讓心靜下來。
               </div>
             </div>
+            <div class="card-back">
+              <img
+                src="../image/Card_backSide_fixed.png"
+                alt="卡牌背面"
+                class="card-image"
+              />
+            </div>
           </div>
+        </div>
 
         <div class="card-footer">
-          <span class="leaf-icon"><img src="../image/CardA_Icon02.png"></span>
+          <span class="leaf-icon"><img src="../image/CardA_Icon02.png" /></span>
           <p class="card-footer-text">小行動：深呼吸 3 次，關掉一個通知。</p>
         </div>
 
-      <div class="button-group">
-        <button id="btnShare" class="btn btn-share">分享結果</button>
-        <a href="../Home/Home.html" class="btn btn-home">回首頁</a>
-      </div>
+        <div class="button-group">
+          <button id="btnShare" class="btn btn-share">分享結果</button>
+          <a href="../index.html" class="btn btn-home">回首頁</a>
+        </div>
+      </section>
+    </main>
 
-    </section>
-  </main>
-  
-      <footer id="footer" class="info-bar">
-     <div class="footer-content">
-         <p>探索心靈的深處，找回內在的平靜與力量</p>
-         <h6>本網站內容僅供自我探索與情緒覺察之用，非專業心理諮詢或醫療建議。</h6>
+    <footer id="footer" class="info-bar">
+      <div class="footer-content">
+        <p>探索心靈的深處，找回內在的平靜與力量</p>
+        <h6>
+          本網站內容僅供自我探索與情緒覺察之用，非專業心理諮詢或醫療建議。
+        </h6>
         <div class="footer-links">
-           <span>關於我們</span> | <span>隱私條款</span> | <span>聯繫窗口</span>
-        </div>               
+          <span>關於我們</span> | <span>隱私條款</span> | <span>聯繫窗口</span>
+        </div>
       </div>
     </footer>
 
-
-  <script src="../js/GuideAnswer_A.js"></script>
-</body>
-
+    <script src="../js/GuideAnswer_A.js"></script>
+  </body>
 </html>
