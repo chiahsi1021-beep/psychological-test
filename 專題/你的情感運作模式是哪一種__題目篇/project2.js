@@ -100,10 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function goToResult(type) {
     switch (type) {
-      case "A": window.location.href = "../../answer2-1.html"; break;
-      case "B": window.location.href = "../../answer2-2.html"; break;
-      case "C": window.location.href = "../../answer2-3.html"; break;
-      case "D": window.location.href = "../../answer2-4.html"; break;
+      case "A": window.location.href = "/quiz/emotional-mode/results/answer2-1.html"; break;
+      case "B": window.location.href = "/quiz/emotional-mode/results/answer2-2.html"; break;
+      case "C": window.location.href = "/quiz/emotional-mode/results/answer2-3.html"; break;
+      case "D": window.location.href = "/quiz/emotional-mode/results/answer2-4.html"; break;
     }
   }
 });
