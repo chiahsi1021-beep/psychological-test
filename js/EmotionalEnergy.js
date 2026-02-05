@@ -1,8 +1,13 @@
+const topicID = document.body.getAttribute('data-topic');
+const storageKey = `lastDrawDate_${topicID}`;
+
 const alreadyDrawnPage = "EmotionalEnergy_Answer/EmotionalEnergy_Limited.html";
 const btnDraw = document.querySelector('.btn-draw');
 const container = document.querySelector('.main-container');
 const mainCard = document.querySelector('.card-inner');
 const display = document.querySelector('.card-display');
+
+
 
 let cards = []; 
 
@@ -10,7 +15,7 @@ let cards = [];
 btnDraw.addEventListener('click', function() {
     // 1. 檢查日期限制
     const today = new Date().toISOString().slice(0, 10);
-    const lastDrawDate = localStorage.getItem('lastDrawDate');
+    const lastDrawDate = localStorage.getItem(storageKey);
     
    if (lastDrawDate === today) {
         window.location.href = alreadyDrawnPage;
@@ -117,7 +122,7 @@ function finishShuffle() {
 
             // --- 重要：跳轉前存入日期，標記今日已抽過 ---
             const today = new Date().toISOString().slice(0, 10);
-            localStorage.setItem('lastDrawDate', today);
+            localStorage.setItem(storageKey, today);
 
             window.location.href = targetPage;
         }, 1000);
