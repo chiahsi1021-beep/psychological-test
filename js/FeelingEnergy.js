@@ -11,11 +11,11 @@ btnDraw.addEventListener('click', function() {
     // 1. 檢查日期限制
     const today = new Date().toISOString().slice(0, 10);
     const lastDrawDate = localStorage.getItem('lastDrawDate');
-    /*
+    
    if (lastDrawDate === today) {
         window.location.href = alreadyDrawnPage;
         return; // 攔截，不讓後面的程式碼執行
-    }*/
+    }
 
     // 2. 執行洗牌前置動畫
     btnDraw.classList.add('fade-out');
